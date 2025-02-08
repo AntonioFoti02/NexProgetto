@@ -1,0 +1,31 @@
+<!--<p>prova works!</p>-->
+<mat-slider min="1" max="5" step="0.2" value="1.5">
+    <input matSliderThumb>
+  </mat-slider>
+
+
+  
+  <mat-card class="example-card">
+    <mat-card-header>
+        <!--Per far si che compaia il nome del cane chiamiamo l'array "cani" in cui è contenuto il nome,
+            lo 0 è perche è contenuto un solo elemnto nell'array quindi ha indice 0-->
+      <mat-card-title>{{ cani[0].nome }}</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>This card indeterminates progress bar.</p>
+      <p>The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
+        from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
+        originally bred for hunting.</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <!--Bottone con il disabled che in base a se è true o false, attiva o disattiva il bottone-->
+  <button mat-raised-button color="primary" [disabled]="isDisabled">Primary</button>
+
+  <!--Bottone con event bindind quando il bottone viene cliccato conpare nella console di chrome F12 "Ho cliccato"-->
+  <button mat-raised-button color="primary" (click)="OnClick()">Primary</button>

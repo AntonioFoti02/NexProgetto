@@ -1,0 +1,50 @@
+<!--<app-prova></app-prova>-->
+
+  <mat-form-field appearance="fill" appearance="fill">
+    <mat-label>Fill form field</mat-label>
+    <input matInput placeholder="Placeholder" [(ngModel)]="title">
+  </mat-form-field>
+
+  <p>{{title}}<p>
+
+    <button mat-raised-button color="primary" (click)="onClick($event)">Primary</button>
+
+    <!-- Esempio della direttiva "ngIf" che modica le proprietà dell'oggetto
+     Rendendolo o no visibile sulla pagina se la condizione e vera o meno -->
+    <p *ngIf="isVisible"> Hello world! <p>
+      <!-- A seconda di che valore boolean ha isVisible sceglie cosa mostrare-->
+      <p *ngIf="isVisible; else mandaElse"> sono visibile <p>
+      <ng-template #mandaElse>
+        <p> non sono visibile </p>
+      </ng-template>
+      <!-- Il ngIf si può fare sia come è scritto prima ma anche in questo modo più veloce
+        ma più confusionale-->
+      <p *ngIf="isVisible"></p>
+      <p *ngIf="!isVisible"></p>
+    
+    
+    <!-- <li> lista (HTML)-->
+    <!--Esempio della direttiva ngFor (se dopo persone mettiamo i : possiamo estrapolare
+     altri dati dagli elementi es. index)-->
+    <ul>
+      <li *ngFor="let persona of persone">
+        {{persona.nome}} - {{persona.cognome}}
+      </li>
+    </ul>
+    <div *ngFor="let persona of persone; index as i">
+      <p>{{persona.nome}} {{persona.cognome}} {{i}}</p>
+    </div>
+
+
+    <!-- Esempio dello ngSwitch, è una versione più compatta dello ngIf-->
+     <div [ngSwitch]="numero">
+        <p *ngSwitchCase="1"> uno </p>
+          <p *ngSwitchCase="2"> due </p>
+            <p *ngSwitchCase="3"> tre </p>
+              <p *ngSwitchCase="4"> quattro </p>
+                <p *ngSwitchDefault> default </p>
+     </div>
+
+
+<app-calendario></app-calendario>
+
