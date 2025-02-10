@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../servizi/firebase.service';
 import { CalendarioComponent } from '../calendario/calendario.component';
+import { FormsModule } from '@angular/forms';
 
 
 export interface Notizia {
@@ -17,11 +18,11 @@ export interface Notizia {
 })
 export class NotiziaComponent implements OnInit {
 
-  descrizione: string = 'Descrizione della notizia'
-  foto: string = 'Foto della notizia'
-  dataNotizia: string = 'Data della notizia'
+  today: String = new Date().toISOString().split('T')[0];
 
   notizia: Notizia = { descrizione: '', foto: '', dataNotizia: '' }
+
+  notizie: Notizia[] = []
 
   constructor(private firebase: FirebaseService) { }
 
@@ -29,20 +30,22 @@ export class NotiziaComponent implements OnInit {
     
     // Esempio di prova di come prendere dati dal database
      this.firebase.getNotizia('https://nexprogetto-3c4aa-default-rtdb.europe-west1.firebasedatabase.app/notizie.json')
-     .subscribe((data: any) =>{
-       this.notizia = Object.keys(data).map(key => data[key])[1]
-       console.log(this.notizia)
-    })
+       .subscribe((data: any) =>{
+         this.notizie = Object.keys(data).map(key => data[key])
+         console.log(this.notizie)
+     })
 
 
     // Esempio di prova di come insetrire dati nel database
-    //  this.firebase.insertNotizia('https://nexprogetto-3c4aa-default-rtdb.europe-west1.firebasedatabase.app/notizie.json', 
-    //  {
-    //    foto: 'foto', descrizione: 'Descrizione della notizia',
-    //    dataNotizia: 'Data notizia'
-    //  }).subscribe(data => {
-    //    console.log(data)
-    //  })
+      //  this.firebase.insertNotizia('https://nexprogetto-3c4aa-default-rtdb.europe-west1.firebasedatabase.app/notizie.json', 
+      //  {
+      //    foto: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Post_Malone_July_2021.jpg/300px-Post_Malone_July_2021.jpg',
+      //    descrizione: 'Oggi è un giorno speciale per la musica, perché Post Malone ha raggiunto un traguardo straordinario: è diventato l\'artista con il maggior numero di nomination ai Grammy senza aver mai vinto un premio! Con ben 18 nomination, Posty ha superato persino Snoop Dogg e continua a dimostrare il suo talento e la sua dedizione. Nonostante non abbia ancora vinto un Grammy, il suo contributo alla musica è indiscutibile',
+      //    dataNotizia: '2025.02.17'
+      //    //dataNotizia: `${this.today.toISOString().split('T')[0]}`
+      //  }).subscribe(data => {
+      //    console.log(data)
+      //  })
   }
 
 

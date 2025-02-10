@@ -1,7 +1,7 @@
 <mat-form-field class="example-full-width">
     <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepicker]="picker" [(ngModel)]= "dataNotizia">
+    <input matInput [matDatepicker]="picker" [(ngModel)]= "dataCalendario">
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
   <button mat-raised-button (click)="picker.open()">Open</button>
-  <p>{{dataNotizia}}</p>
+  <p>{{dataCalendario}}</p>

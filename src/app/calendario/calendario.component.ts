@@ -26,16 +26,16 @@ import { BrowserModule } from '@angular/platform-browser';
 export class CalendarioComponent {
 
   // Collegata tramite Binding con l'HTML sul calendario
-  dataNotizia: string = 'Data della notizia'
+  dataCalendario: string = 'Data della notizia'
 
 
   // Provare a vedere se all'inizializzazione del componente è possibile 
   // impostare la data odierna in automatico
   onInit(): void {
     const today = new Date()
-    this.dataNotizia = today.toISOString().split('T')[0]
+    this.dataCalendario = today.toISOString().split('T')[0]
 
-    
+
   }
 
   
