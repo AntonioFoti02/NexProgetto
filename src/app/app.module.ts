@@ -14,12 +14,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select'
-import { CalendarioComponent } from "./calendario/calendario.component";
+import {CalendarioComponent} from "./calendario/calendario.component";
+import { NotiziaComponent } from './notizia/notizia.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProvaComponent
+    ProvaComponent,
+    NotiziaComponent
   ],
   imports: [
     BrowserModule,
