@@ -13,9 +13,11 @@
   </div>
 <div class="custom-notiziedata1">2025.02.16</div> -->
 
+
+
 <ng-container *ngFor="let notizia of notizie">
-  <div *ngIf="notizia.dataNotizia == today">
-    <img [src]="notizia.foto">
-    <p>{{notizia.descrizione}}</p>
-  </div>
-</ng-container>
+    <div *ngIf="notizia.dataNotizia === dataCalendario">
+      <img [src]="notizia.foto">
+      <p>{{notizia.descrizione}}</p>
+    </div>
+  </ng-container>

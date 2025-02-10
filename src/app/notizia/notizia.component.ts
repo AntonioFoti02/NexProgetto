@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../servizi/firebase.service';
 import { CalendarioComponent } from '../calendario/calendario.component';
 import { FormsModule } from '@angular/forms';
+import { DataSharingService } from '../servizi/data-sharing.service';
 
 
 export interface Notizia {
@@ -18,24 +19,31 @@ export interface Notizia {
 })
 export class NotiziaComponent implements OnInit {
 
-  today: String = new Date().toISOString().split('T')[0];
+  dataCalendario: string = '';
 
   notizia: Notizia = { descrizione: '', foto: '', dataNotizia: '' }
 
   notizie: Notizia[] = []
 
-  constructor(private firebase: FirebaseService) { }
+  constructor(private firebase: FirebaseService, private dataSharingService: DataSharingService) { }
 
   ngOnInit(): void {
+    this.dataSharingService.currentDataCalendario.subscribe(dataCalendario => {
+      this.dataCalendario = this.convertDateFormat(dataCalendario);
+      console.log('Data Calendario:', this.dataCalendario);
+    });
     
     // Esempio di prova di come prendere dati dal database
      this.firebase.getNotizia('https://nexprogetto-3c4aa-default-rtdb.europe-west1.firebasedatabase.app/notizie.json')
        .subscribe((data: any) =>{
          this.notizie = Object.keys(data).map(key => data[key])
-         console.log(this.notizie)
+         console.log(this.notizie);
+         this.notizie.forEach(notizia => {
+          console.log('Notizia:', notizia);
+        });
      })
 
-
+     
     // Esempio di prova di come insetrire dati nel database
       //  this.firebase.insertNotizia('https://nexprogetto-3c4aa-default-rtdb.europe-west1.firebasedatabase.app/notizie.json', 
       //  {
@@ -49,7 +57,10 @@ export class NotiziaComponent implements OnInit {
   }
 
 
-  
+  private convertDateFormat(date: string): string {
+    return date.replace(/-/g, '.');
+  }
+
   
 
   // inserisciNotizia(){
@@ -59,3 +70,5 @@ export class NotiziaComponent implements OnInit {
   //   })
   // }
 }
+
+
