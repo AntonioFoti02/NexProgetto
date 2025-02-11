@@ -2,22 +2,24 @@
 <p>{{notizia.foto}}</p>
 <p>{{notizia.dataNotizia}}</p> -->
 
-<!-- <img src="https://it.marketscreener.com/images/reuters/2025-01/2025-01-31T023329Z_1_LYNXNPEL0U027_RTROPTP_3_PEOPLE-TAYLORSWIFT.JPG" >
-<div class="custom-notizie1">
-    Un traguardo straordinario che testimonia il suo talento ineguagliabile e il
-    suo potere di incantare milioni di fan in tutto il mondo. Questo
-    riconoscimento non solo celebra la sua capacità di creare musica che risuona
-    profondamente, ma anche la sua straordinaria dedizione e passione per l'arte.
-    Ogni album che ha prodotto non è solo una raccolta di canzoni, ma un viaggio
-    emozionante attraverso storie e sentimenti universali.
-  </div>
-<div class="custom-notiziedata1">2025.02.16</div> -->
-
-
-
 <ng-container *ngFor="let notizia of notizie">
+<section class="artist-section">
+    <div *ngIf="notizia.dataNotizia === dataCalendario">
+    <img [src]="notizia.foto" alt="Taylor Swift performance" class="artist-image">
+    <div class="artist-info">
+      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f05986b722b81eef9085863705a800c55d3780f1698e614799d71d6371761db8?apiKey=8c90e310f33f44eeb686373906c223d9&" alt="Billboard Music Awards" class="awards-logo"> <!--Linea verde-->
+      <p class="artist-description">
+        {{notizia.descrizione}}
+      </p>
+      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f05986b722b81eef9085863705a800c55d3780f1698e614799d71d6371761db8?apiKey=8c90e310f33f44eeb686373906c223d9&" alt="Billboard Music Awards" class="awards-logo"> <!--Linea verde-->
+     </div>
+    </div>
+  </section>
+</ng-container>
+
+<!-- <ng-container *ngFor="let notizia of notizie">
     <div *ngIf="notizia.dataNotizia === dataCalendario">
       <img [src]="notizia.foto">
       <p>{{notizia.descrizione}}</p>
     </div>
-  </ng-container>
+  </ng-container> -->

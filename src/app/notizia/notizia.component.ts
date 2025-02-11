@@ -33,7 +33,7 @@ export class NotiziaComponent implements OnInit {
       console.log('Data Calendario:', this.dataCalendario);
     });
     
-    // Esempio di prova di come prendere dati dal database
+    // Prende le notizie dal database
      this.firebase.getNotizia('https://nexprogetto-3c4aa-default-rtdb.europe-west1.firebasedatabase.app/notizie.json')
        .subscribe((data: any) =>{
          this.notizie = Object.keys(data).map(key => data[key])
@@ -44,16 +44,16 @@ export class NotiziaComponent implements OnInit {
      })
 
      
-    // Esempio di prova di come insetrire dati nel database
-      //  this.firebase.insertNotizia('https://nexprogetto-3c4aa-default-rtdb.europe-west1.firebasedatabase.app/notizie.json', 
-      //  {
-      //    foto: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Post_Malone_July_2021.jpg/300px-Post_Malone_July_2021.jpg',
-      //    descrizione: 'Oggi è un giorno speciale per la musica, perché Post Malone ha raggiunto un traguardo straordinario: è diventato l\'artista con il maggior numero di nomination ai Grammy senza aver mai vinto un premio! Con ben 18 nomination, Posty ha superato persino Snoop Dogg e continua a dimostrare il suo talento e la sua dedizione. Nonostante non abbia ancora vinto un Grammy, il suo contributo alla musica è indiscutibile',
-      //    dataNotizia: '2025.02.17'
-      //    //dataNotizia: `${this.today.toISOString().split('T')[0]}`
-      //  }).subscribe(data => {
-      //    console.log(data)
-      //  })
+    // Inserire dati nel database
+        // this.firebase.insertNotizia('https://nexprogetto-3c4aa-default-rtdb.europe-west1.firebasedatabase.app/notizie.json', 
+        // {
+        //   foto: 'https://external-preview.redd.it/C8MCw7NqsCghQNAXlYOcAbK47CkBMOiOh4LZR0MI978.jpg?width=640&crop=smart&auto=webp&s=19218ef3a52962ee712ee2dd2b81a79c12109f43',
+        //   descrizione: 'Eminem, nome d\'arte di Marshall Mathers, è uno dei rapper più celebri di tutti i tempi. Nato nel 1972, ha rivoluzionato l’hip-hop con album come The Slim Shady LP e The Marshall Mathers LP. È noto per il suo stile tecnico, i testi crudi e l’abilità nel freestyle. Con hit come Lose Yourself e Without Me, ha conquistato il pubblico globale. Ha vinto numerosi Grammy e un Oscar per la colonna sonora di 8 Mile. Nonostante le controversie, ha affrontato temi come povertà, dipendenze e difficoltà familiari. È considerato uno dei migliori liricisti della storia del rap.',
+        //   dataNotizia: '2025.02.16'
+        //   //dataNotizia: `${this.today.toISOString().split('T')[0]}`
+        // }).subscribe(data => {
+        //   console.log(data)
+        // })
   }
 
 
@@ -61,14 +61,6 @@ export class NotiziaComponent implements OnInit {
     return date.replace(/-/g, '.');
   }
 
-  
-
-  // inserisciNotizia(){
-  //   this.firebase.insertNotizia('https://nex-progetto-default-rtdb.firebaseio.com/notizie.json', {
-  //     titolo: 'Titolo della notizia',
-  //     descrizione: 'Descrizione della notizia'
-  //   })
-  // }
 }
 
 

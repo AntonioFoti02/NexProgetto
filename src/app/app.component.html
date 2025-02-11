@@ -1,71 +1,72 @@
-<!-- <app-prova></app-prova> -->
-
-  <!-- <mat-form-field appearance="fill" appearance="fill">
-    <mat-label>Fill form field</mat-label>
-    <input matInput placeholder="Placeholder" [(ngModel)]="title">
-  </mat-form-field>
-
-  <p>{{title}}<p>
-
-    <button mat-raised-button color="primary" (click)="onClick($event)">Primary</button> -->
-
-    <!-- Esempio della direttiva "ngIf" che modica le proprietà dell'oggetto
-     Rendendolo o no visibile sulla pagina se la condizione e vera o meno -->
-    <!-- <p *ngIf="isVisible"> Hello world! <p> -->
-      <!-- A seconda di che valore boolean ha isVisible sceglie cosa mostrare-->
-      <!-- <p *ngIf="isVisible; else mandaElse"> sono visibile <p>
-      <ng-template #mandaElse>
-        <p> non sono visibile </p>
-      </ng-template> -->
-      <!-- Il ngIf si può fare sia come è scritto prima ma anche in questo modo più veloce
-        ma più confusionale-->
-      <!-- <p *ngIf="isVisible"></p>
-      <p *ngIf="!isVisible"></p> -->
-    
-    
-    <!-- <li> lista (HTML)-->
-    <!--Esempio della direttiva ngFor (se dopo persone mettiamo i : possiamo estrapolare
-     altri dati dagli elementi es. index)-->
-    <!-- <ul>
-      <li *ngFor="let persona of persone">
-        {{persona.nome}} - {{persona.cognome}}
-      </li>
-    </ul>
-    <div *ngFor="let persona of persone; index as i">
-      <p>{{persona.nome}} {{persona.cognome}} {{i}}</p>
-    </div> -->
-
-
-    <!-- Esempio dello ngSwitch, è una versione più compatta dello ngIf-->
-     <!-- <div [ngSwitch]="numero">
-        <p *ngSwitchCase="1"> uno </p>
-          <p *ngSwitchCase="2"> due </p>
-            <p *ngSwitchCase="3"> tre </p>
-              <p *ngSwitchCase="4"> quattro </p>
-                <p *ngSwitchDefault> default </p>
-     </div> -->
-  
-
-    <!--Esempio di ngStyle, modifica dello stile ccs del componente-->
-    <!-- <ul>
-      <li *ngFor="let persona2 of persone2">
-        <div class = "cerchio" [ngStyle]="{'background': persona2.isOnline ? 'green' : 'red'}"></div>
-        <p>{{persona2.nome}}</p><p>{{persona2.cognome}}</p>
-      </li>
-    </ul> -->
-
-    <!--Esempio di ngClass,-->
-    <!-- <ul>
-      <li *ngFor="let persona2 of persone2; index as i">
-        <div class = "cerchio" [ngClass]="{'cerchioOnline': persona2.isOnline, 'cerchioOffline': !persona2.isOnline}">i</div>
-        <p>{{persona2.nome}}</p><p>{{persona2.cognome}}</p>
-      </li>
-    </ul> -->
-
-    <!-- Esmepio di come inserire delle notizie -->
-    <!-- <app-notizia></app-notizia> -->
 
 
 <app-calendario></app-calendario>
 
-<app-notizia></app-notizia>
+
+
+<div class="spotify-daily">
+  <header class="header">
+    <a href="https://www.spotify.com" target="_blank">
+      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/feee1f6a14a153436882c4c2b6b1a12c47447549d2bfe0e435520a6e5ffb0abe?apiKey=8c90e310f33f44eeb686373906c223d9&" alt="Spotify" class="logo">
+    </a>
+    <div class="date">27 Gennaio 2024</div>
+  </header>
+  <main class="main-content">
+
+    <app-notizia></app-notizia>
+    
+
+  <br><br>
+  <br><br>
+  <br><br>
+  <br><br>
+  <br><br>
+    <section class="top-3">
+      <h3 class="section-title">Top 3 Artisti Mensili Italia</h3>
+      <div class="artists-grid">
+        <div class="artist-card">
+          <a href="https://open.spotify.com/intl-it/artist/6PsQc21YZU7WNfiODG69Qk" target = "_blank">
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ddb8fd2f948b6b947ef4e73526c6450cf93530f940a2d451b73b62066ea2cf9f?apiKey=8c90e310f33f44eeb686373906c223d9&" alt="Tony Boy" class="artist-thumbnail">
+          <h3 class="artist-card-title">Tony boy 1°</h3>
+          </a>
+        </div>
+        <div class="artist-card">
+          <a href="https://open.spotify.com/intl-it/artist/6RdcIWVKYYzNzjQRd3oyHS" target = "_blank">
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/19f8d4885498c43c91840062b410a0d31c931bb54c044c9fe534dbe4c547f9fa?apiKey=8c90e310f33f44eeb686373906c223d9&" alt="Pinguini Tattici Nucleari" class="artist-thumbnail">
+          </a>
+          <h3 class="artist-card-title">
+            Pinguini Tattici<br>Nucleari°
+          </h3>
+        </div>
+        <div class="artist-card">
+          <a href="https://open.spotify.com/intl-it/artist/0jdNdfi4vAuVi7a6cPDFBM" target = "_blank">
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/22f678604e950837f19749428026867d4aa97f2c2efc445427de033f66c82e04?apiKey=8c90e310f33f44eeb686373906c223d9&" alt="Lazza" class="artist-thumbnail">
+        </a>
+        </div>
+      </div>
+    </section>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <section class="link-socials">
+      <h3 class="section-title">Seguici anche sui Social</h3>
+
+      <div class="social-links">
+        <a href="https://www.instagram.com/spotify/" aria-label="Instagram">
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/51ecefa70335b712fd939a8bcc121958b880c573b6a5e308c96997a8e5dda9ef?apiKey=8c90e310f33f44eeb686373906c223d9&" alt="" class="social-icon">
+        </a>
+        <a href="https://www.facebook.com/Spotify/?locale=it_IT" aria-label="Facebook">
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/22350cb320fb252f4304654f7c1d3e9cb70199242900aa821bf2c89e37e11f8e?apiKey=8c90e310f33f44eeb686373906c223d9&" alt="" class="social-icon">
+        </a>
+        <a href="https://www.spotify.com" aria-label="Phone">
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4036cf981247803e8a6972dde9d3cbf1a0e7bd449186ee7f25f926a734264e8e?apiKey=8c90e310f33f44eeb686373906c223d9&" alt="" class="social-icon">
+        </a>
+        <a href="https://x.com/spotify?mx=2" aria-label="Twitter">
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/dda824df5aa9d046a2ce85237440d1222208b98b96bb0f6b1dc8447fc617e6a3?apiKey=8c90e310f33f44eeb686373906c223d9&" alt="" class="social-icon">
+        </a>
+      </div>
+    </section>
+  </main>
+</div>
