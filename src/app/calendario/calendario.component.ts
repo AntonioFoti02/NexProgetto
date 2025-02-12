@@ -29,6 +29,7 @@ export class CalendarioComponent implements OnInit {
 
   constructor(private dataSharingService: DataSharingService) {}
 
+  // Inizializza il componente
   ngOnInit(): void {
     const today = new Date();
     this.dataCalendario = this.formatDate(today); // Formatta la data come 'YYYY-MM-DD'
@@ -36,6 +37,7 @@ export class CalendarioComponent implements OnInit {
     console.log('Data Calendario iniziale:', this.dataCalendario);
   }
 
+  // Metodo che viene chiamato quando la data viene cambiata
   onDateChange(event: any): void {
     const selectedDate = new Date(event.value);
     this.dataCalendario = this.formatDate(selectedDate);
@@ -43,6 +45,7 @@ export class CalendarioComponent implements OnInit {
     console.log('Data Calendario selezionata:', this.dataCalendario);
   }
 
+  // Metodo che formatta la data come 'YYYY-MM-DD'
   private formatDate(date: Date): string {
     const offset = date.getTimezoneOffset();
     const adjustedDate = new Date(date.getTime() - (offset * 60 * 1000));

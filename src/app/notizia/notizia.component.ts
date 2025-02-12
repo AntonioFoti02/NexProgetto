@@ -21,14 +21,18 @@ export class NotiziaComponent implements OnInit {
 
   dataCalendario: string = '';
 
+  // Oggetto di tipo Notizia
   notizia: Notizia = { descrizione: '', foto: '', dataNotizia: '' }
 
+  // Array di oggetti di tipo Notizia
   notizie: Notizia[] = []
 
   constructor(private firebase: FirebaseService, private dataSharingService: DataSharingService) { }
 
   ngOnInit(): void {
+    // Prende la data dal servizio di condivisione dati
     this.dataSharingService.currentDataCalendario.subscribe(dataCalendario => {
+      // Formatta la data come 'YYYY.MM.DD'
       this.dataCalendario = this.convertDateFormat(dataCalendario);
       console.log('Data Calendario:', this.dataCalendario);
     });
@@ -44,19 +48,19 @@ export class NotiziaComponent implements OnInit {
      })
 
      
-    // Inserire dati nel database
-        // this.firebase.insertNotizia('https://nexprogetto-3c4aa-default-rtdb.europe-west1.firebasedatabase.app/notizie.json', 
-        // {
-        //   foto: 'https://external-preview.redd.it/C8MCw7NqsCghQNAXlYOcAbK47CkBMOiOh4LZR0MI978.jpg?width=640&crop=smart&auto=webp&s=19218ef3a52962ee712ee2dd2b81a79c12109f43',
-        //   descrizione: 'Eminem, nome d\'arte di Marshall Mathers, è uno dei rapper più celebri di tutti i tempi. Nato nel 1972, ha rivoluzionato l’hip-hop con album come The Slim Shady LP e The Marshall Mathers LP. È noto per il suo stile tecnico, i testi crudi e l’abilità nel freestyle. Con hit come Lose Yourself e Without Me, ha conquistato il pubblico globale. Ha vinto numerosi Grammy e un Oscar per la colonna sonora di 8 Mile. Nonostante le controversie, ha affrontato temi come povertà, dipendenze e difficoltà familiari. È considerato uno dei migliori liricisti della storia del rap.',
-        //   dataNotizia: '2025.02.16'
-        //   //dataNotizia: `${this.today.toISOString().split('T')[0]}`
-        // }).subscribe(data => {
-        //   console.log(data)
-        // })
+    // Inserisce i dati nel database
+        //  this.firebase.insertNotizia('https://nexprogetto-3c4aa-default-rtdb.europe-west1.firebasedatabase.app/notizie.json', 
+        //  {
+        //    foto: 'https://i.pinimg.com/736x/d5/16/b6/d516b6f0820a54a02ab9f39b5f3eb9e9.jpg',
+        //    descrizione: '21 Savage è un rapper britannico che ha raggiunto la fama grazie al suo stile unico e alle sue liriche taglienti. Nato a Londra nel 1992, ha trascorso gran parte della sua vita a Atlanta, dove ha iniziato a fare musica e a farsi conoscere nel mondo dell\'hip hop. Con il suo album di debutto "Issa Album", ha dimostrato di essere un artista di talento e di avere molto da dire. La sua musica è cruda, autentica e riflette la sua esperienza di vita. Con brani come "Bank Account" e "A Lot", ha dimostrato di essere uno dei rapper più interessanti della sua generazione. Nonostante non abbia ancora vinto un Grammy, il suo contributo alla musica è indiscutibile.',
+        //    dataNotizia: '2025.02.17'
+        //    //dataNotizia: `${this.today.toISOString().split('T')[0]}`
+        //  }).subscribe(data => {
+        //    console.log(data)
+        //  })
   }
 
-
+  // Metodo per convertire la data nel formato 'YYYY.MM.DD'
   private convertDateFormat(date: string): string {
     return date.replace(/-/g, '.');
   }
