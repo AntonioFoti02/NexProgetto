@@ -5,7 +5,6 @@ import { HttpClientModule} from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { ProvaComponent } from './prova/prova.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSliderModule } from '@angular/material/slider';
@@ -20,7 +19,6 @@ import { NotiziaComponent } from './notizia/notizia.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ProvaComponent,
     NotiziaComponent
   ],
   imports: [
