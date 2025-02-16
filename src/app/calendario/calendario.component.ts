@@ -52,5 +52,4 @@ export class CalendarioComponent implements OnInit {
     return adjustedDate.toISOString().split('T')[0];
   }
 
-  
 }
